@@ -76,22 +76,23 @@ st.markdown(
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: var(--font);
-        padding-bottom: 80px;
         margin-bottom: 100px; /* Augmenter l’espace pour éviter le chevauchement */
     }}
 
-.footer {{
-    position: fixed; /* Plus de fixed pour éviter le chevauchement */
-    width: 100%;
-    background-color: var(--secondary-background-color);
-    color: var(--text-color);
-    text-align: center;
-    padding: 15px;
-    font-size: 14px;
-    border-top: 2px solid var(--primary-color);
-    box-shadow: 0px -2px 10px var(--primary-color);
-    margin-top: 20px; /* Pour qu'il ne soit pas collé au reste */
-}}
+    .footer {{
+        position: fixed;
+        bottom: 10px; /* Décalage pour ne pas être totalement collé */
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-background-color);
+        color: var(--text-color);
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        border-top: 2px solid var(--primary-color);
+        box-shadow: 0px -2px 10px var(--primary-color);
+        z-index: 9999; /* Assure que le footer passe au-dessus */
+    }}
 
     .stApp {{
         background-color: var(--background-color);
