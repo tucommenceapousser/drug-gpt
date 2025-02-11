@@ -12,8 +12,8 @@ st.set_page_config(
 )
 st.title("Drug-GPT - Harm Reduction Assistant")
 
-# Menu de navigation
-page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses"])
+# Menu de navigation (ajout de "Plan d'Arrêt")
+page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses", "Plan d'Arrêt"])
 
 # Page d'accueil
 if page == "Accueil":
@@ -108,3 +108,7 @@ elif page == "Questions & Réponses":
             stream = generate_stream(st.session_state.messages)
             response = st.write_stream(stream)
         st.session_state.messages.append({"role": "assistant", "content": response})
+
+# Ajout de la page "Plan d'Arrêt"
+elif page == "Plan d'Arrêt":
+    import plan  # Importer plan.py pour l'afficher
