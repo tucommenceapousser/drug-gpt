@@ -76,6 +76,21 @@ st.markdown(
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: var(--font);
+        margin-bottom: 60px; /* Pour éviter que le footer cache du contenu */
+    }}
+
+    .footer {{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: var(--secondary-background-color);
+        color: var(--text-color);
+        text-align: center;
+        padding: 10px;
+        font-size: 14px;
+        border-top: 2px solid var(--primary-color);
+        box-shadow: 0px -2px 10px var(--primary-color);
     }}
 
     .stApp {{
@@ -132,6 +147,9 @@ st.markdown(
         border: 2px solid var(--primary-color);
     }}
     </style>
+    <div class="footer">
+        🚀 Trkn-Drug-GPT - Réduction des risques & Informations sur les substances | by <strong>trhacknon</strong>
+    </div>
     """,
     unsafe_allow_html=True
 )
