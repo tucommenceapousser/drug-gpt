@@ -16,42 +16,48 @@ themes = {
         "backgroundColor": "#0E0E0E",
         "secondaryBackgroundColor": "#161616",
         "textColor": "#FFFFFF",
-        "font": "monospace"
+        "font": "monospace",
+        "fontt": "cursive"
     },
     "Cyberpunk": {
         "primaryColor": "#FF007F",
         "backgroundColor": "#1A1A2E",
         "secondaryBackgroundColor": "#0F3460",
         "textColor": "#E94560",
-        "font": "sans serif"
+        "font": "sans serif",
+        "fontt": "monospace"
     },
     "Matrix": {
         "primaryColor": "#00FF00",
         "backgroundColor": "#000000",
         "secondaryBackgroundColor": "#003300",
         "textColor": "#00FF00",
-        "font": "monospace"
+        "font": "monospace",
+        "fontt": "sans serif"
     },
     "Neon Blue": {
         "primaryColor": "#009DFF",
         "backgroundColor": "#121212",
         "secondaryBackgroundColor": "#1E1E1E",
         "textColor": "#C0C0C0",
-        "font": "sans serif"
+        "font": "sans serif",
+        "fontt": "monospace"
     },
     "Dark Red": {
         "primaryColor": "#FF0000",
         "backgroundColor": "#1A0000",
         "secondaryBackgroundColor": "#330000",
         "textColor": "#FF5555",
-        "font": "sans serif"
+        "font": "sans serif",
+        "fontt": "cursive"
     },
     "Vaporwave": {
         "primaryColor": "#FF77FF",
         "backgroundColor": "#2E1A47",
         "secondaryBackgroundColor": "#4B0082",
         "textColor": "#FFDBE9",
-        "font": "cursive"
+        "font": "cursive",
+        "fontt": "monospace"
     }
 }
 
@@ -87,8 +93,9 @@ st.markdown(
         background-color: var(--secondary-background-color);
         color: var(--text-color);
         text-align: center;
-        padding: 10px;
+        padding: 2px;
         font-size: 14px;
+        font-family: var(--fontt);
         border-top: 2px solid var(--primary-color);
         box-shadow: 0px -2px 10px var(--primary-color);
         z-index: 9999; /* Assure que le footer passe au-dessus */
