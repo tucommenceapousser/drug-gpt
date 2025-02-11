@@ -87,13 +87,13 @@ st.markdown(
 
     .footer {{
         position: fixed;
-        bottom: 10px; /* Décalage pour ne pas être totalement collé */
+        bottom: 2px; /* Décalage pour ne pas être totalement collé */
         left: 0;
         width: 100%;
         background-color: var(--secondary-background-color);
         color: var(--text-color);
         text-align: center;
-        padding: 2px;
+        padding: 10px;
         font-size: 14px;
         font-family: var(--fontt);
         border-top: 2px solid var(--primary-color);
