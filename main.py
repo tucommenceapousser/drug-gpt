@@ -3,7 +3,7 @@ from agent import generate_stream, generate_response
 
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
-    page_icon="favicon.ico",
+    page_icon="https://h.top4top.io/p_3329bvmjr1.png",
     menu_items={
         'About': "This app provide harm reduction advice and drug information."
     }
