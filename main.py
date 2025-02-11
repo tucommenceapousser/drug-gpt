@@ -1,7 +1,7 @@
 import streamlit as st
 from agent import generate_stream, generate_response
 
-st.experimental_rerun()
+st.rerun()
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
     page_icon="🙈",
