@@ -1,5 +1,6 @@
 import streamlit as st
 from agent import generate_stream, generate_response
+import openai  # Assurez-vous d'installer la bibliothèque OpenAI avec pip install openai
 
 # Configuration de la page Streamlit
 st.set_page_config(
@@ -11,6 +12,22 @@ st.set_page_config(
     }
 )
 st.title("Drug-GPT - Harm Reduction Assistant")
+
+# Configuration de l'API OpenAI pour la génération d'images (assurez-vous d'avoir une clé API valide)
+openai.api_key = "votre_clé_API_openai"
+
+# Fonction pour générer une image via DALL-E
+def generate_drug_image(drug_name):
+    try:
+        response = openai.Image.create(
+            prompt=f"Illustration of {drug_name} drug, its appearance and effects, realistic, medical style",
+            n=1,
+            size="1024x1024"
+        )
+        image_url = response['data'][0]['url']
+        return image_url
+    except Exception as e:
+        return None
 
 # Menu de navigation
 page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses"])
@@ -75,6 +92,22 @@ elif page == "Informations sur les drogues":
         - Utiliser un soutien professionnel pour sevrer et traiter la dépendance.
 
     """)
+
+    # Générer une image pour l'héroïne (par exemple)
+    if st.button("Afficher l'image de l'héroïne"):
+        image_url = generate_drug_image("heroin")
+        if image_url:
+            st.image(image_url, caption="Illustration de l'héroïne", use_column_width=True)
+        else:
+            st.error("Erreur lors de la génération de l'image.")
+
+    # Ajouter un autre bouton pour générer l'image du cannabis ou d'autres drogues
+    if st.button("Afficher l'image du cannabis"):
+        image_url = generate_drug_image("cannabis")
+        if image_url:
+            st.image(image_url, caption="Illustration du cannabis", use_column_width=True)
+        else:
+            st.error("Erreur lors de la génération de l'image.")
 
 # Page "Questions & Réponses" (Q&A)
 elif page == "Questions & Réponses":
