@@ -160,8 +160,8 @@ if page == "🏠 Accueil":
     """)
 
 # Page "Informations sur les drogues"
-elif page == "🙉 Informations sur les drogues":
-    st.markdown("## 🙊 Informations sur les drogues et leurs risques")
+elif page == "💊 Informations sur les drogues":
+    st.markdown("## 💊 Informations sur les drogues et leurs risques")
 
     ### **Héroïne**
     st.markdown("### 1️⃣ Héroïne (Opioïdes)")
@@ -213,6 +213,7 @@ elif page == "🙉 Informations sur les drogues":
         - **Ne jamais mélanger avec de l'alcool**.  
         - **Tester avant consommation** (fentanyl, contaminants).  
     """)
+
 
 # Page "Questions & Réponses" (Q&A)
 elif page == "❓ Questions & Réponses":
