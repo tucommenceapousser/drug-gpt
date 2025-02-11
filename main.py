@@ -76,12 +76,12 @@ st.markdown(
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: var(--font);
-        margin-bottom: 60px; /* Pour éviter que le footer cache du contenu */
+        margin-bottom: 100px; /* Augmenter l’espace pour éviter le chevauchement */
     }}
 
     .footer {{
         position: fixed;
-        bottom: 0;
+        bottom: 10px; /* Décalage pour ne pas être totalement collé */
         left: 0;
         width: 100%;
         background-color: var(--secondary-background-color);
@@ -91,6 +91,7 @@ st.markdown(
         font-size: 14px;
         border-top: 2px solid var(--primary-color);
         box-shadow: 0px -2px 10px var(--primary-color);
+        z-index: 9999; /* Assure que le footer passe au-dessus */
     }}
 
     .stApp {{
