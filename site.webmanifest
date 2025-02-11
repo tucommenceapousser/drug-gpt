@@ -4,23 +4,28 @@
   "description": "Une application offrant des conseils de réduction des risques liés aux drogues.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#1e1e1e",  // Un fond sombre par exemple
-  "theme_color": "#00ff00",        // Une couleur fluo ou ton thème personnalisé
-  "icons": [
-    {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "/android-chrome-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    },
-    {
-      "src": "/favicon.ico",
-      "sizes": "any",
-      "type": "image/x-icon"
-    }
-  ]
+  "background_color": "#1e1e1e",
+  "theme_color": "#00ff00",
+"icons": [
+  {
+    "src": "/android-chrome-192x192.png",
+    "sizes": "192x192",
+    "type": "image/png"
+  },
+  {
+    "src": "/android-chrome-512x512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  },
+  {
+    "src": "/favicon.ico",
+    "sizes": "any",
+    "type": "image/x-icon"
+  },
+  {
+    "src": "/apple-touch-icon-180x180.png",
+    "sizes": "180x180",
+    "type": "image/png"
+  }
+]
 }
