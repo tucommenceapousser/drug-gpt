@@ -64,7 +64,7 @@ theme = themes[selected_theme]
 st.markdown(
     f"""
     <style>
-    ._link_gzau3_10 _container_gzau3_1 _viewerBadge_nim44_23 {{
+    ._link_gzau3_10, _container_gzau3_1, _viewerBadge_nim44_23 {{
     display: none;
 }}
     :root {{
