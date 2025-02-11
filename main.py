@@ -96,7 +96,6 @@ st.markdown(
     .stApp {{
         background-color: var(--background-color);
         color: var(--text-color);
-        padding-bottom: 120px;
         }}
         
     .stApp a[href="https://streamlit.io/cloud"] {{
