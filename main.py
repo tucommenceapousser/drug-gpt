@@ -1,7 +1,7 @@
 import streamlit as st
 from agent import generate_stream, generate_response
 
-# Configuration de la page Streamlit (doit être en tout premier)
+# Configuration de la page Streamlit
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
     page_icon="💊",
@@ -10,11 +10,10 @@ st.set_page_config(
                  "It is not intended for real-life use. Please consult a medical professional for advice."
     }
 )
-
 st.title("Drug-GPT - Harm Reduction Assistant")
 
-# Menu de navigation (ajout de "Plan d'Arrêt")
-page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses", "Plan d'Arrêt"])
+# Menu de navigation
+page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses"])
 
 # Page d'accueil
 if page == "Accueil":
@@ -109,7 +108,3 @@ elif page == "Questions & Réponses":
             stream = generate_stream(st.session_state.messages)
             response = st.write_stream(stream)
         st.session_state.messages.append({"role": "assistant", "content": response})
-
-# Ajout de la page "Plan d'Arrêt"
-elif page == "Plan d'Arrêt":
-    import plan  # Importer plan.py pour l'afficher
