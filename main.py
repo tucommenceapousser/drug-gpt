@@ -56,6 +56,7 @@ themes = {
 }
 
 # Sélecteur de thème dans la barre latérale
+# Sélecteur de thème dans la barre latérale
 selected_theme = st.sidebar.selectbox("🎨 Choisissez un thème :", list(themes.keys()))
 
 # Appliquer le thème sélectionné
@@ -70,95 +71,74 @@ st.markdown(
         --text-color: {theme['textColor']};
         --font: {theme['font']};
     }}
+
     body {{
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: var(--font);
     }}
+
+    .stApp {{
+        background-color: var(--background-color);
+        color: var(--text-color);
+    }}
+
+    h1, h2, h3 {{
+        color: var(--primary-color);
+        text-shadow: 2px 2px 8px var(--primary-color);
+        text-align: center;
+    }}
+
+    p, ul, li {{
+        color: var(--text-color);
+        font-size: 16px;
+    }}
+
+    .stSidebar {{
+        background-color: var(--secondary-background-color);
+        border-right: 3px solid var(--primary-color);
+    }}
+
     .stButton>button {{
         background-color: var(--primary-color);
         color: var(--background-color);
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px;
+        transition: 0.3s;
     }}
-    .stSidebar {{
+
+    .stButton>button:hover {{
+        background-color: #FF0044;
+        color: white;
+        border: 2px solid white;
+    }}
+
+    .stChatMessage {{
         background-color: var(--secondary-background-color);
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px var(--primary-color);
+    }}
+
+    img {{
+        border: 3px solid var(--primary-color);
+        border-radius: 5px;
+    }}
+
+    .stChatInput {{
+        background-color: var(--secondary-background-color);
+        color: var(--text-color);
+        border: 2px solid var(--primary-color);
     }}
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Configuration de la page Streamlit
-
-st.title("Drug-GPT - Harm Reduction Assistant")
 st.write(f"🖌️ **Thème actuel** : {selected_theme}")
 
-# Ton code existant continue ici...
-# 🎨 Injection de CSS pour un design "hacker" fluo
-st.markdown("""
-    <style>
-    /* Fond général */
-    .stApp {
-        background-color: #0E0E0E;
-        color: white;
-    }
-
-    /* Titres */
-    h1, h2, h3 {
-        color: #00FFAA;
-        text-shadow: 2px 2px 8px #00FFAA;
-        text-align: center;
-    }
-
-    /* Texte standard */
-    p, ul, li {
-        color: #D3D3D3;
-        font-size: 16px;
-    }
-
-    /* Sidebar (navigation) */
-    .css-1d391kg {
-        background-color: #161616 !important;
-        border-right: 3px solid #00FFAA;
-    }
-
-    /* Boutons */
-    .stButton>button {
-        background-color: #00FFAA;
-        color: black;
-        font-weight: bold;
-        border-radius: 8px;
-        padding: 10px;
-        transition: 0.3s;
-    }
-    .stButton>button:hover {
-        background-color: #FF0044;
-        color: white;
-        border: 2px solid white;
-    }
-
-    /* Chat Messages */
-    .stChatMessage {
-        background-color: #1A1A1A;
-        padding: 15px;
-        border-radius: 10px;
-        box-shadow: 0px 0px 10px #00FFAA;
-    }
-
-    /* Images */
-    img {
-        border: 3px solid #00FFAA;
-        border-radius: 5px;
-    }
-
-    /* Input Chat */
-    .stChatInput {
-        background-color: #1E1E1E;
-        color: white;
-        border: 2px solid #00FFAA;
-    }
-
-    </style>
-""", unsafe_allow_html=True)
+# Configuration de la page Streamlit
 
 st.title("💊 Drug-GPT - Harm Reduction Assistant")
 
