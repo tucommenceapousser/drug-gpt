@@ -1,0 +1,6 @@
+[theme]
+primaryColor = "#00FFAA"  # Couleur principale (néon vert)
+backgroundColor = "#0E0E0E"  # Fond principal sombre
+secondaryBackgroundColor = "#161616"  # Fond des widgets
+textColor = "#FFFFFF"  # Texte en blanc pour le contraste
+font = "monospace"  # Police stylée type "terminal"
