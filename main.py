@@ -97,6 +97,15 @@ st.markdown(
     .stApp {{
         background-color: var(--background-color);
         color: var(--text-color);
+        }}
+        
+    .stApp a[href="https://streamlit.io/cloud"] {{
+        display: none !important;
+    }}
+
+    /* Masquer l'avatar en bas à droite */
+    .stDeployButton {{
+        display: none !important;
     }}
 
     h1, h2, h3 {{
