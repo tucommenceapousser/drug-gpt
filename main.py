@@ -54,7 +54,7 @@ elif page == "Informations sur les drogues":
 
     ### **Cannabis**
     st.markdown("### 2. Cannabis")
-    st.image("images/cannabis.jpg", caption="Fleurs de cannabis", width=300)  # Image locale ou URL
+    st.image("images/cannabis.jpeg", caption="Fleurs de cannabis", width=300)  # Image locale ou URL
     st.markdown("""
         Le cannabis est une drogue psychoactive couramment utilisée, souvent sous forme de joints ou d'huiles.  
 
