@@ -1,16 +1,97 @@
 import streamlit as st
 from agent import generate_stream, generate_response
 
+# Définition des thèmes disponibles
+themes = {
+    "Hacker": {
+        "primaryColor": "#00FFAA",
+        "backgroundColor": "#0E0E0E",
+        "secondaryBackgroundColor": "#161616",
+        "textColor": "#FFFFFF",
+        "font": "monospace"
+    },
+    "Cyberpunk": {
+        "primaryColor": "#FF007F",
+        "backgroundColor": "#1A1A2E",
+        "secondaryBackgroundColor": "#0F3460",
+        "textColor": "#E94560",
+        "font": "sans serif"
+    },
+    "Matrix": {
+        "primaryColor": "#00FF00",
+        "backgroundColor": "#000000",
+        "secondaryBackgroundColor": "#003300",
+        "textColor": "#00FF00",
+        "font": "monospace"
+    },
+    "Neon Blue": {
+        "primaryColor": "#009DFF",
+        "backgroundColor": "#121212",
+        "secondaryBackgroundColor": "#1E1E1E",
+        "textColor": "#C0C0C0",
+        "font": "sans serif"
+    },
+    "Dark Red": {
+        "primaryColor": "#FF0000",
+        "backgroundColor": "#1A0000",
+        "secondaryBackgroundColor": "#330000",
+        "textColor": "#FF5555",
+        "font": "sans serif"
+    },
+    "Vaporwave": {
+        "primaryColor": "#FF77FF",
+        "backgroundColor": "#2E1A47",
+        "secondaryBackgroundColor": "#4B0082",
+        "textColor": "#FFDBE9",
+        "font": "cursive"
+    }
+}
+
+# Sélecteur de thème dans la barre latérale
+selected_theme = st.sidebar.selectbox("🎨 Choisissez un thème :", list(themes.keys()))
+
+# Appliquer le thème sélectionné
+theme = themes[selected_theme]
+st.markdown(
+    f"""
+    <style>
+    :root {{
+        --primary-color: {theme['primaryColor']};
+        --background-color: {theme['backgroundColor']};
+        --secondary-background-color: {theme['secondaryBackgroundColor']};
+        --text-color: {theme['textColor']};
+        --font: {theme['font']};
+    }}
+    body {{
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: var(--font);
+    }}
+    .stButton>button {{
+        background-color: var(--primary-color);
+        color: var(--background-color);
+    }}
+    .stSidebar {{
+        background-color: var(--secondary-background-color);
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
 # Configuration de la page Streamlit
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
     page_icon="💊",
     menu_items={
-        'About': "This app is a prototype made for demo purposes to provide harm reduction advice and drug information. "
-                 "It is not intended for real-life use. Please consult a medical professional for advice."
+        'About': "This app is a prototype made for demo purposes to provide harm reduction advice and drug information."
     }
 )
 
+st.title("Drug-GPT - Harm Reduction Assistant")
+st.write(f"🖌️ **Thème actuel** : {selected_theme}")
+
+# Ton code existant continue ici...
 # 🎨 Injection de CSS pour un design "hacker" fluo
 st.markdown("""
     <style>
