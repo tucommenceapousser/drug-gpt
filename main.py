@@ -39,6 +39,7 @@ def generate_drug_image(drug_name):
         image_url = response['data'][0]['url']
         return image_url
     except Exception as e:
+        st.error(f"Erreur lors de la génération de l'image : {str(e)}")  # Affichage de l'erreur
         return None
 
 # Menu de navigation
