@@ -81,7 +81,7 @@ st.markdown(
     }}
 
 .footer {{
-    position: relative; /* Plus de fixed pour éviter le chevauchement */
+    position: fixed; /* Plus de fixed pour éviter le chevauchement */
     width: 100%;
     background-color: var(--secondary-background-color);
     color: var(--text-color);
