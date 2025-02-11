@@ -8,7 +8,7 @@ import os
 load_dotenv()
 
 # Récupérer la clé API OpenAI depuis l'environnement
-openai.api_key = os.getenv("OPENAI_API_KEY")
+openai_api_key = os.getenv("OPENAI_API_KEY")
 
 # Vérifier si la clé a bien été chargée
 if openai_api_key:
