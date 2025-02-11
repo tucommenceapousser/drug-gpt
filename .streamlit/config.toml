@@ -4,3 +4,17 @@ backgroundColor = "#0E0E0E"  # Fond principal sombre
 secondaryBackgroundColor = "#161616"  # Fond des widgets
 textColor = "#FFFFFF"  # Texte en blanc pour le contraste
 font = "monospace"  # Police stylée type "terminal"
+
+[server]
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+address = "0.0.0.0"
+maxUploadSize = 100
+enableWebsocketCompression = true
+
+[browser]
+gatherUsageStats = false
+
+[logger]
+level = "error"
