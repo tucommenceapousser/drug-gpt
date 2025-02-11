@@ -1,6 +1,5 @@
 import streamlit as st
 from agent import generate_stream, generate_response
-from plan import *
 
 # Configuration de la page Streamlit (doit être en tout premier)
 st.set_page_config(
