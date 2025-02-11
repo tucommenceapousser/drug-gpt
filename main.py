@@ -160,7 +160,7 @@ if page == "🏠 Accueil":
     """)
 
 # Page "Informations sur les drogues"
-elif page == "💊 Informations sur les drogues":
+elif page == "🙊 Informations sur les drogues":
     st.markdown("## 💊 Informations sur les drogues et leurs risques")
 
     ### **Héroïne**
