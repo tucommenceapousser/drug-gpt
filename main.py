@@ -3,9 +3,9 @@ from agent import generate_stream, generate_response
 
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
-    page_icon="💊",
+    page_icon="🙈",
     menu_items={
-        'About': "This app is a prototype made for demo purposes to provide harm reduction advice and drug information."
+        'About': "This app provide harm reduction advice and drug information."
     }
 )
 
@@ -140,10 +140,10 @@ st.write(f"🖌️ **Thème actuel** : {selected_theme}")
 
 # Configuration de la page Streamlit
 
-st.title("💊 Drug-GPT - Harm Reduction Assistant")
+st.title("🙈 Trkn-Drug-GPT - Harm Reduction Assistant")
 
 # Menu de navigation stylisé
-page = st.sidebar.radio("📜 Navigation", ["🏠 Accueil", "💊 Informations sur les drogues", "❓ Questions & Réponses"])
+page = st.sidebar.radio("📜 Navigation", ["🏠 Accueil", "🙊 Informations sur les drogues", "❓ Questions & Réponses"])
 
 # Page d'accueil
 if page == "🏠 Accueil":
@@ -160,8 +160,8 @@ if page == "🏠 Accueil":
     """)
 
 # Page "Informations sur les drogues"
-elif page == "💊 Informations sur les drogues":
-    st.markdown("## 💊 Informations sur les drogues et leurs risques")
+elif page == "🙉 Informations sur les drogues":
+    st.markdown("## 🙊 Informations sur les drogues et leurs risques")
 
     ### **Héroïne**
     st.markdown("### 1️⃣ Héroïne (Opioïdes)")
