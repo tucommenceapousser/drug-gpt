@@ -1,17 +1,14 @@
 import streamlit as st
 from agent import generate_stream, generate_response
-from PIL import Image
-import streamlit as st
+import os
 
-favicon = Image.open("favicon.ico")
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
-    page_icon=favicon,
+    page_icon=os.path.abspath("favicon.ico"),  # Assure-toi d'ajouter une virgule ici
     menu_items={
-        'About': "This app provide harm reduction advice and drug information."
+        'About': "This app provides harm reduction advice and drug information."
     }
 )
-
 # Définition des thèmes disponibles
 themes = {
     "Hacker": {
