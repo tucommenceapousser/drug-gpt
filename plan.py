@@ -2,6 +2,11 @@ import streamlit as st
 from openai import OpenAI
 import pandas as pd
 
+# Vérifier si la clé API est disponible
+if "OPENAI_API_KEY" not in st.secrets:
+    st.error("🔑 La clé API OpenAI est manquante. Ajoutez-la dans `.streamlit/secrets.toml`.")
+    st.stop()
+
 client = OpenAI(api_key=st.secrets["OPENAI_API_KEY"])
 
 st.title("📋 Plan personnalisé pour arrêter ou réduire la consommation")
@@ -22,22 +27,33 @@ if st.button("Générer mon plan personnalisé"):
         Établis un plan progressif, avec des objectifs à court, moyen et long terme, des actions concrètes et des conseils pour gérer le manque et éviter les rechutes.
         Affiche le plan sous forme de tableau avec les colonnes : 'Objectif', 'Action', 'Conseils'."""
 
-        response = client.chat.completions.create(
-            model="gpt-4",
-            messages=[{"role": "system", "content": "Tu es un assistant spécialisé dans l'accompagnement des toxicomanes pour réduire ou arrêter leur consommation de drogue. Crée un plan progressif sous forme de tableau en fonction de la situation de l'utilisateur."},
-                      {"role": "user", "content": user_input}]
-        )
+        try:
+            response = client.chat.completions.create(
+                model="gpt-4",
+                messages=[
+                    {"role": "system", "content": "Tu es un assistant spécialisé dans l'accompagnement des toxicomanes pour réduire ou arrêter leur consommation de drogue. Crée un plan progressif sous forme de tableau en fonction de la situation de l'utilisateur."},
+                    {"role": "user", "content": user_input}
+                ]
+            )
 
-        # Extraction du tableau généré par l'IA
-        plan_text = response.choices[0].message.content
-        lines = plan_text.split("\n")
-        table_data = [line.split("|")[1:-1] for line in lines if "|" in line]
+            # Extraction du texte généré
+            plan_text = response.choices[0].message.content
 
-        if len(table_data) > 1:
-            df = pd.DataFrame(table_data[1:], columns=table_data[0])
-            st.write("### 🛠️ Plan personnalisé d'arrêt ou de réduction")
-            st.dataframe(df)
-        else:
-            st.warning("L'IA n'a pas pu générer un tableau structuré. Essayez de reformuler votre réponse.")
+            # Vérification si la réponse contient un tableau
+            if "|" in plan_text:
+                lines = plan_text.split("\n")
+                table_data = [line.split("|")[1:-1] for line in lines if "|" in line]
+
+                if len(table_data) > 1:
+                    df = pd.DataFrame(table_data[1:], columns=table_data[0])
+                    st.write("### 🛠️ Plan personnalisé d'arrêt ou de réduction")
+                    st.table(df)
+                else:
+                    st.warning("❗ L'IA n'a pas pu générer un tableau structuré. Essayez de reformuler votre réponse.")
+            else:
+                st.warning("🚨 Réponse mal formatée. L'IA n'a pas généré un tableau.")
+
+        except Exception as e:
+            st.error(f"Erreur lors de la génération du plan : {str(e)}")
 
 st.markdown("💡 **Conseil** : Vous pouvez imprimer ce plan ou l'enregistrer pour suivre vos progrès.")
