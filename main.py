@@ -1,6 +1,14 @@
 import streamlit as st
 from agent import generate_stream, generate_response
 
+st.set_page_config(
+    page_title="Trkn-Drug-GPT",
+    page_icon="💊",
+    menu_items={
+        'About': "This app is a prototype made for demo purposes to provide harm reduction advice and drug information."
+    }
+)
+
 # Définition des thèmes disponibles
 themes = {
     "Hacker": {
@@ -80,13 +88,6 @@ st.markdown(
 )
 
 # Configuration de la page Streamlit
-st.set_page_config(
-    page_title="Trkn-Drug-GPT",
-    page_icon="💊",
-    menu_items={
-        'About': "This app is a prototype made for demo purposes to provide harm reduction advice and drug information."
-    }
-)
 
 st.title("Drug-GPT - Harm Reduction Assistant")
 st.write(f"🖌️ **Thème actuel** : {selected_theme}")
