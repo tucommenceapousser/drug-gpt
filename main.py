@@ -76,6 +76,7 @@ st.markdown(
         --secondary-background-color: {theme['secondaryBackgroundColor']};
         --text-color: {theme['textColor']};
         --font: {theme['font']};
+        --fontt: {theme['fontt']};
     }}
 
     body {{
@@ -87,7 +88,7 @@ st.markdown(
 
     .footer {{
         position: fixed;
-        bottom: 2px; /* Décalage pour ne pas être totalement collé */
+        bottom: 0px; /* Décalage pour ne pas être totalement collé */
         left: 0;
         width: 100%;
         background-color: var(--secondary-background-color);
