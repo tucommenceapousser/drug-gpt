@@ -10,82 +10,150 @@ st.set_page_config(
                  "It is not intended for real-life use. Please consult a medical professional for advice."
     }
 )
-st.title("Drug-GPT - Harm Reduction Assistant")
 
-# Menu de navigation
-page = st.sidebar.radio("Navigation", ["Accueil", "Informations sur les drogues", "Questions & Réponses"])
+# 🎨 Injection de CSS pour un design "hacker" fluo
+st.markdown("""
+    <style>
+    /* Fond général */
+    .stApp {
+        background-color: #0E0E0E;
+        color: white;
+    }
+
+    /* Titres */
+    h1, h2, h3 {
+        color: #00FFAA;
+        text-shadow: 2px 2px 8px #00FFAA;
+        text-align: center;
+    }
+
+    /* Texte standard */
+    p, ul, li {
+        color: #D3D3D3;
+        font-size: 16px;
+    }
+
+    /* Sidebar (navigation) */
+    .css-1d391kg {
+        background-color: #161616 !important;
+        border-right: 3px solid #00FFAA;
+    }
+
+    /* Boutons */
+    .stButton>button {
+        background-color: #00FFAA;
+        color: black;
+        font-weight: bold;
+        border-radius: 8px;
+        padding: 10px;
+        transition: 0.3s;
+    }
+    .stButton>button:hover {
+        background-color: #FF0044;
+        color: white;
+        border: 2px solid white;
+    }
+
+    /* Chat Messages */
+    .stChatMessage {
+        background-color: #1A1A1A;
+        padding: 15px;
+        border-radius: 10px;
+        box-shadow: 0px 0px 10px #00FFAA;
+    }
+
+    /* Images */
+    img {
+        border: 3px solid #00FFAA;
+        border-radius: 5px;
+    }
+
+    /* Input Chat */
+    .stChatInput {
+        background-color: #1E1E1E;
+        color: white;
+        border: 2px solid #00FFAA;
+    }
+
+    </style>
+""", unsafe_allow_html=True)
+
+st.title("💊 Drug-GPT - Harm Reduction Assistant")
+
+# Menu de navigation stylisé
+page = st.sidebar.radio("📜 Navigation", ["🏠 Accueil", "💊 Informations sur les drogues", "❓ Questions & Réponses"])
 
 # Page d'accueil
-if page == "Accueil":
+if page == "🏠 Accueil":
     st.markdown("""
-        ## Contexte de l'application
-        Bienvenue sur Drug-GPT, un assistant virtuel conçu pour fournir des informations fiables sur les drogues et aider les consommateurs à comprendre les risques associés à la consommation de substances comme l'héroïne, le cannabis et la cocaïne.  
+        ## 🏠 Contexte de l'application
+        Bienvenue sur **Drug-GPT**, un assistant virtuel conçu pour fournir des **informations fiables** sur les drogues et aider à **réduire les risques** liés à leur consommation.  
         
-        Cette application vise à fournir des stratégies de réduction des risques, des informations sur les mécanismes d'action des substances et des conseils pour aider les utilisateurs à prendre des décisions éclairées.  
+        🚀 **Ce que vous trouverez ici** :
+        - 🔬 **Détails sur les substances** : Effets, mécanismes d'action, dangers.
+        - 🛡️ **Stratégies de réduction des risques** : Conseils pratiques.
+        - 🏥 **Aide pour la dépendance** : Ressources et accompagnement.
 
-        ### Que pouvez-vous attendre de cet assistant ?
-        - **Informations détaillées sur les substances** : mécanismes d'action, effets et risques.
-        - **Conseils de réduction des risques** : stratégies pour minimiser les dangers liés à la consommation.
-        - **Aide pour la gestion de la dépendance** : ressources et conseils pour obtenir de l'aide.  
-
-        **Note importante :** Cette application est une démonstration. Pour toute question de santé, consultez un professionnel.
+        ⚠️ **Note :** Cette application est une **démonstration**. Pour toute question de santé, consultez un **professionnel**.
     """)
 
 # Page "Informations sur les drogues"
-elif page == "Informations sur les drogues":
-    st.markdown("## Informations sur les drogues et leurs risques")
+elif page == "💊 Informations sur les drogues":
+    st.markdown("## 💊 Informations sur les drogues et leurs risques")
 
     ### **Héroïne**
-    st.markdown("### 1. Héroïne (Opioïdes)")
-    st.image("images/heroine.jpg", caption="Poudre d'héroïne", width=300)  # Image locale ou URL
+    st.markdown("### 1️⃣ Héroïne (Opioïdes)")
+    st.image("images/heroine.jpg", caption="💉 Poudre d'héroïne", width=300)
     st.markdown("""
-        L'héroïne est un opiacé très addictif qui agit sur le système nerveux central.  
+        **Description :**  
+        Un puissant opiacé provoquant une sensation d'euphorie intense, mais extrêmement addictif.  
 
-        **Risques :**  
-        - Surdose pouvant entraîner une dépression respiratoire fatale.  
-        - Forte dépendance physique et psychologique.  
-        - Infections et maladies transmissibles (si injection avec du matériel contaminé).  
+        🛑 **Risques :**  
+        - Surdose fatale (dépression respiratoire).  
+        - Forte dépendance.  
+        - Transmission de maladies (injections contaminées).  
 
-        **Réduction des risques :**  
-        - Ne jamais consommer seul.  
-        - Utiliser des seringues propres pour éviter les infections.  
-        - Accéder à des programmes de substitution (méthadone, buprénorphine).  
+        ✅ **Réduction des risques :**  
+        - Toujours avoir du **Naloxone** à disposition.  
+        - **Ne jamais consommer seul**.  
     """)
 
     ### **Cannabis**
-    st.markdown("### 2. Cannabis")
-    st.image("images/cannabis.jpeg", caption="Fleurs de cannabis", width=300)  # Image locale ou URL
+    st.markdown("### 2️⃣ Cannabis")
+    st.image("images/cannabis.jpeg", caption="🌿 Fleurs de cannabis", width=300)
     st.markdown("""
-        Le cannabis est une drogue psychoactive couramment utilisée, souvent sous forme de joints ou d'huiles.  
+        **Description :**  
+        Psychoactif naturel souvent fumé sous forme de joints ou vaporisé.  
 
-        **Risques :**  
-        - Troubles de la mémoire et de la concentration.  
-        - Risque accru de psychose chez certaines personnes sensibles.  
-        - Dépendance psychologique chez certains consommateurs réguliers.  
+        🛑 **Risques :**  
+        - Dépendance psychologique.  
+        - Troubles de la mémoire.  
+        - Psychose chez certains consommateurs.  
 
-        **Réduction des risques :**  
-        - Éviter de fumer avant d'effectuer des tâches nécessitant de la concentration (conduite, travail).  
-        - Limiter la fréquence d'utilisation, surtout chez les jeunes.  
+        ✅ **Réduction des risques :**  
+        - **Espacer les prises** pour éviter l'accoutumance.  
+        - **Éviter les mélanges avec alcool**.  
     """)
 
     ### **Cocaïne**
-    st.markdown("### 3. Cocaïne")
-    st.image("images/cocaine.jpg", caption="Poudre de cocaïne", width=300)  # Image locale ou URL
+    st.markdown("### 3️⃣ Cocaïne")
+    st.image("images/cocaine.jpg", caption="❄️ Poudre de cocaïne", width=300)
     st.markdown("""
-        La cocaïne est un stimulant qui procure une euphorie intense, mais présente de nombreux risques.  
+        **Description :**  
+        Stimulant rapide et euphorisant, mais très addictif.  
 
-        **Risques :**  
-        - Problèmes cardiovasculaires (hypertension, crises cardiaques).  
-        - Forte dépendance psychologique.  
-        - Comportements impulsifs et agressifs.  
+        🛑 **Risques :**  
+        - Crises cardiaques.  
+        - Paranoïa et troubles du comportement.  
+        - Forte dépendance.  
 
-        **Réduction des risques :**  
-        - Ne jamais mélanger la cocaïne avec de l'alcool ou d'autres drogues.  
-        - S'informer sur la composition pour éviter des produits coupés avec des substances dangereuses.  
+        ✅ **Réduction des risques :**  
+        - **Ne jamais mélanger avec de l'alcool**.  
+        - **Tester avant consommation** (fentanyl, contaminants).  
     """)
 
 # Page "Questions & Réponses" (Q&A)
-elif page == "Questions & Réponses":
+elif page == "❓ Questions & Réponses":
     if "messages" not in st.session_state:
         st.session_state.messages = []
         response = generate_response(st.session_state.messages)
