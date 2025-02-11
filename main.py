@@ -1,7 +1,20 @@
 import streamlit as st
 from agent import generate_stream, generate_response
 import openai  # Assurez-vous d'installer la bibliothèque OpenAI avec pip install openai
+from dotenv import load_dotenv
+import os
 
+# Charger les variables d'environnement depuis le fichier .env
+load_dotenv()
+
+# Récupérer la clé API OpenAI depuis l'environnement
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
+# Vérifier si la clé a bien été chargée
+if openai_api_key:
+    openai.api_key = openai_api_key
+else:
+    raise ValueError("La clé API OpenAI n'a pas été trouvée dans le fichier .env")
 # Configuration de la page Streamlit
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
@@ -14,7 +27,6 @@ st.set_page_config(
 st.title("Drug-GPT - Harm Reduction Assistant")
 
 # Configuration de l'API OpenAI pour la génération d'images (assurez-vous d'avoir une clé API valide)
-openai.api_key = "votre_clé_API_openai"
 
 # Fonction pour générer une image via DALL-E
 def generate_drug_image(drug_name):
