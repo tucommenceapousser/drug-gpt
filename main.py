@@ -2,7 +2,7 @@ import streamlit as st
 from agent import generate_stream, generate_response
 from plan import *
 
-# Configuration de la page Streamlit
+# Configuration de la page Streamlit (doit être en tout premier)
 st.set_page_config(
     page_title="Trkn-Drug-GPT",
     page_icon="💊",
@@ -11,6 +11,7 @@ st.set_page_config(
                  "It is not intended for real-life use. Please consult a medical professional for advice."
     }
 )
+
 st.title("Drug-GPT - Harm Reduction Assistant")
 
 # Menu de navigation (ajout de "Plan d'Arrêt")
